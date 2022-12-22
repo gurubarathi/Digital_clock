@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+	<style>
+	  div{
+	   font-size:2rem;
+	    margin:auto;
+	   width:200px;
+	   height:200px;
+	   border-radius:50%;
+	   display:flex;
+	   justify-content:center;
+	   align-items:center;
+	   background-color:#4c335b;
+	   color:#fff;
+	  }
+	  section{
+	   height:400px;
+	   width:400px;
+	   background-color:#5c4681;
+	   margin:auto;
+	   display:flex;
+	   justify-content:center;
+	   align-items:center;
+	    border-radius:50%;
+	   
+	   
+	  }
+	</style>
+</head>
+<body>
+  <section>
+      <div id="digit_clock">
+  </section>
+  </div>
+  <script>
+    function timeRun(){
+	  let date =new Date();
+	  let h = date.getHours();
+	  let m =date.getMinutes();
+	  let s =date.getSeconds();
+	 
+	  let session="AM";
+	  if(h>12){
+	  h=h-12;
+	  session="PM";
+	  }
+	  if(h==0){
+	   h=12;
+	  }
+	  h=(h<10) ? "0"+h :h;
+	  m=(m<10) ? "0"+m :m;
+	  s=(s<10) ? "0"+s :s;
+	 
+	  
+	  let time= h+':'+m+":"+s+' '+session;
+	  
+	  document.getElementById("digit_clock").innerText = time;
+	  setTimeout(timeRun,1000)
+	}
+	timeRun();
+  </script>
+ </body>
+ </html>
